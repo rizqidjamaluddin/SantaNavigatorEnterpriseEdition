@@ -1,3 +1,28 @@
+#!/usr/bin/env php
 <?php
+function __autoload($class_name) {
+    $class_name = __DIR__ . '/' . $class_name;
+    $class_name = str_replace('SantaNavigatorEnterpriseEdition\\', '', $class_name);
+    $class_name = str_replace('\\', '/', $class_name);
+        if (file_exists($class_name . '.php')) {
+            require_once ($class_name . '.php');
+            return;
+    }
+}
 
-echo $argv[1];
+$instructions = $argv[1];
+
+if (!$instructions) {
+    echo "Please add the instruction set as the first argument.\n";
+}
+
+$navigator = new \SantaNavigatorEnterpriseEdition\Navigation\EnterpriseEditionNavigator();
+$wayfinder = new \SantaNavigatorEnterpriseEdition\Navigation\Wayfinder\EnterpriseEditionWayfinder();
+$instructions = new \SantaNavigatorEnterpriseEdition\Navigation\DirectionInstructions($instructions,
+    new \SantaNavigatorEnterpriseEdition\Navigation\DirectionInstructionInterpreter([
+        new \SantaNavigatorEnterpriseEdition\Navigation\InstructionSet\AscendFloorWithAnOpeningParenthesisInstructionCharacter(),
+        new \SantaNavigatorEnterpriseEdition\Navigation\InstructionSet\DescendFloorWithAClosingParenthesisInstructionCharacter()
+    ]));
+$results = $navigator->navigate($instructions, $wayfinder);
+
+echo "\nENTERPRISE RESULTS: " . $results . "\n\n";

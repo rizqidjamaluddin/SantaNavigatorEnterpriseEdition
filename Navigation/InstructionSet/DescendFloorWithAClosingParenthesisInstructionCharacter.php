@@ -1,6 +1,10 @@
-<?php namespace SantaNavigatorEnterpriseEdition\InstructionSet;
+<?php namespace SantaNavigatorEnterpriseEdition\Navigation\InstructionSet;
 
-class DescendFloorWithAClosingParenthesisInstructionCharacter
+class DescendFloorWithAClosingParenthesisInstructionCharacter extends DescendFloorInstructionCharacter
 {
 
+    public function accept($input)
+    {
+        return $input == ')';
+    }
 }

@@ -1,6 +1,10 @@
-<?php namespace SantaNavigatorEnterpriseEdition\ResultSet;
+<?php namespace SantaNavigatorEnterpriseEdition\Navigation\ResultSet;
 
-class MoveUpResultToken
+class MoveUpResultToken implements ResultToken
 {
 
+    public function inflect(MovementPositionTracker $tracker)
+    {
+        $tracker->modify('1');
+    }
 }

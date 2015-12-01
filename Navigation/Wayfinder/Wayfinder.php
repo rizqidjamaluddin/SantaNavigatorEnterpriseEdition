@@ -1,6 +1,8 @@
-<?php namespace SantaNavigatorEnterpriseEdition\Wayfinder;
+<?php namespace SantaNavigatorEnterpriseEdition\Navigation\Wayfinder;
 
-class Wayfinder
+use SantaNavigatorEnterpriseEdition\Navigation\DirectionInstructions;
+
+interface Wayfinder
 {
-
+    public function execute(DirectionInstructions $instructions);
 }

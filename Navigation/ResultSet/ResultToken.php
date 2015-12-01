@@ -1,6 +1,6 @@
-<?php namespace SantaNavigatorEnterpriseEdition\ResultSet;
+<?php namespace SantaNavigatorEnterpriseEdition\Navigation\ResultSet;
 
-class ResultToken
+interface ResultToken
 {
-
+    public function inflect(MovementPositionTracker $tracker);
 }

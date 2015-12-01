@@ -1,6 +1,6 @@
 <?php namespace SantaNavigatorEnterpriseEdition\Navigation\InstructionSet;
 
-class AscendFloorInstructionCharacter
+abstract class AscendFloorInstructionCharacter implements InstructionCharacter
 {
 
 }

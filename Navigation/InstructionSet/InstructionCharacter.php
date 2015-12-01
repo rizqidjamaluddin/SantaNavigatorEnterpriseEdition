@@ -1,6 +1,6 @@
 <?php namespace SantaNavigatorEnterpriseEdition\Navigation\InstructionSet;
 
-class InstructionCharacter
+interface InstructionCharacter
 {
-
+    public function accept($input);
 }

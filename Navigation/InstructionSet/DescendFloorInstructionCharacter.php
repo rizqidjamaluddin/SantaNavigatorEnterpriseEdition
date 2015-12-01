@@ -1,6 +1,8 @@
-<?php namespace SantaNavigatorEnterpriseEdition\InstructionSet;
+<?php namespace SantaNavigatorEnterpriseEdition\Navigation\InstructionSet;
 
-class DescendFloorInstructionCharacter
+use SantaNavigatorEnterpriseEdition\Navigation\InstructionSet\InstructionCharacter;
+
+abstract class DescendFloorInstructionCharacter implements InstructionCharacter
 {
 
 }
